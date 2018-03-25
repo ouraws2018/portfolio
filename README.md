@@ -9,3 +9,4 @@ My goal is to acquire knowledge about Amazon Web Services, and to apply that kno
 - bash shell
 - Git and github
 - SSH
+- HTML & CSS
