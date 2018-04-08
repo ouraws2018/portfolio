@@ -13,3 +13,4 @@ My goal is to acquire knowledge about Amazon Web Services, and to apply that kno
 
 ## Milestones
 - IAC for all Project Resources
+- Account / ServerlessWebApp Stacks
