@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Javascript Distribution Bundle
+dist
+
+# MAcOS Finder Attr
+.DS_Store
