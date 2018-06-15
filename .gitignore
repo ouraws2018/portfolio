@@ -62,3 +62,6 @@ dist
 
 # MAcOS Finder Attr
 .DS_Store
+
+# NPM Package Lock
+package-lock.json
