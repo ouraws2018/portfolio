@@ -28,17 +28,28 @@ const myWork = [
 describe("ExampleWork Component", () => {
   let component = shallow(<ExampleWork work={myWork}/>);
 
-  it("Test should be a 'section' element", () => {
-    expect(component.type()).toEqual('section');
+  it("Test should be a 'span' element", () => {
+    expect(component.type()).toEqual('span');
   });
 
   it("Test should contain a child for each work example", () => {
     expect(component.find("ExampleWorkBubble").length).toEqual(myWork.length);
   });
+
+  it("Test should allow the modal to open and close", () => {
+    component.instance().openModal();
+    expect(component.instance().state.modalOpen).toBe(true);
+    component.instance().closeModal();
+    expect(component.instance().state.modalOpen).toBe(false);
+  });
+
 });
 
 describe("ExampleWorkBubble Component", () => {
-  let component = shallow(<ExampleWorkBubble example={myWork[1]}/>);
+  let mockOpenModalFn = jest.fn();
+
+  let component = shallow(<ExampleWorkBubble example={myWork[1]}
+    openModal={mockOpenModalFn}/>);
 
   let images = component.find("img");
 
@@ -48,5 +59,10 @@ describe("ExampleWorkBubble Component", () => {
 
   it("Test should have the image srs set correctly", () => {
     expect(images.prop('src')).toEqual(myWork[1].image.src);
+  });
+
+  it("Test should call the openModal handler when clicked", () => {
+    component.find(".section__exampleWrapper").simulate('click');
+    expect(mockOpenModalFn).toHaveBeenCalled();
   });
 });
